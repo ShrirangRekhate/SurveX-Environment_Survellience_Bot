@@ -75,47 +75,43 @@ An IoT-based, semi-autonomous surveillance bot designed to monitor environmental
 └── README.md                      # This file
 ```
 ## Working
-## Working
 
-The **Environmental Surveillance Bot** monitors various environmental parameters (e.g., temperature, humidity, air quality) and sends the data to the cloud for remote monitoring. The bot uses an **ESP32** or **ESP32-CAM** for Wi-Fi connectivity and sensor data collection. The bot also integrates a camera module for live surveillance.
+The **Environmental Surveillance Bot** monitors various environmental parameters (e.g., temperature, humidity, air quality) and sends the data to a web dashboard in real-time. The bot uses an **ESP32** or **ESP32-CAM** for Wi-Fi connectivity, sensor data collection, and WebSocket communication. The bot also integrates a camera module for live surveillance.
 
 ### Overview of the Process:
 
 1. **Set up the Environment**:
    - Clone the repository from GitHub.
-   - Install the necessary libraries in the Arduino IDE or PlatformIO (e.g., `FirebaseESP32`, `DHT`, `MQ2`, etc.).
-   - Set up Firebase for cloud data storage and configure the project with your Firebase credentials (Firebase URL and authentication token).
+   - Install the necessary libraries in the Arduino IDE or PlatformIO (e.g., `DHT`, `MQ2`, `WebSockets`).
+   - Set up your WebSocket server for communication and ensure it is ready to receive data from the bot.
 
 2. **Hardware Setup**:
    - Connect the sensors (DHT22 for temperature/humidity, MQ2 for gas detection, etc.) to the ESP32/ESP32-CAM as per the wiring instructions.
    - Optionally, connect the ESP32-CAM for live video surveillance.
 
 3. **Modify Configuration**:
-   - Update the **Wi-Fi credentials** and **Firebase credentials** in the code (`ssid`, `password`, `FIREBASE_HOST`, and `FIREBASE_AUTH`).
-   - If using the ESP32-CAM, ensure the camera configuration matches your module’s specifications.
+   - Update the **Wi-Fi credentials** in the code (`ssid`, `password`) to connect the ESP32 to your network.
+   - Modify the **WebSocket server address** and port in the code to point to your WebSocket server.
 
 4. **Upload the Code**:
    - Upload the code to your ESP32/ESP32-CAM via the Arduino IDE or PlatformIO.
 
 5. **Monitoring**:
-   - Once the ESP32 connects to Wi-Fi, it starts reading data from the sensors and sending it to Firebase for real-time monitoring.
-   - You can check the sensor readings on the Firebase console or integrate it with a custom dashboard (using Firebase Realtime Database).
+   - Once the ESP32 connects to Wi-Fi, it starts reading data from the sensors and sends the data to the WebSocket server.
+   - The WebSocket server forwards the data to the connected clients (e.g., a web dashboard) in real-time.
 
 6. **Camera and Video Streaming**:
-   - The ESP32-CAM can stream live footage to your server or cloud platform for surveillance. If you're storing video, modify the code to upload camera snapshots or streams to Firebase or another platform.
+   - The ESP32-CAM can stream live footage to your server or WebSocket server. If you're storing video, modify the code to upload camera snapshots or streams to your server or platform.
 
 ### Code Flow:
 - **Wi-Fi Connection**: The ESP32 connects to the internet using the provided credentials.
 - **Sensor Data Collection**: The code continuously reads data from the DHT22 and MQ2 sensors.
-- **Cloud Upload**: The data is sent to Firebase, where it's stored and can be accessed remotely.
+- **WebSocket Communication**: The data is sent to the WebSocket server, where it is forwarded to any connected clients in real-time.
 - **Camera Integration (Optional)**: The ESP32-CAM captures video frames and streams them if configured.
 
 ### Customization:
-- **Alert System**: Set thresholds for sensor data to trigger alerts, such as high CO levels, and send notifications via email or push notifications.
-- **Web Dashboard**: Integrate Firebase data with a web dashboard to visualize the sensor readings in real-time.
-
-
-
+- **Alert System**: Set thresholds for sensor data to trigger alerts, such as high CO levels, and send notifications via WebSockets to the connected clients.
+- **Web Dashboard**: Integrate WebSocket data with a custom web dashboard to visualize the sensor readings in real-time.
 
 ---
 ## 👨‍💻 Author

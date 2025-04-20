@@ -74,5 +74,6 @@ An IoT-based, semi-autonomous surveillance bot designed to monitor environmental
 ├── schematic.png                  # Circuit diagram
 └── README.md                      # This file
 
+---
 ## Author
    #Shrirang Rekhate

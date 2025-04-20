@@ -69,9 +69,11 @@ An IoT-based, semi-autonomous surveillance bot designed to monitor environmental
 │   └── includes...                # Sensor libraries
 ├── 📁 ESP32-CAM
 │   └── esp32-cam-stream.ino       # ESP32-CAM video streaming code
-├── 📁 Web-Dashboard
+├── 📁 Website.zip
 │   └── index.html                 # HTML/CSS/JS for control panel
-├── schematic.png                  # Circuit diagram
+├── Circuit.png                    # Circuit diagram
+├── PCBPDF.pdf                     # 3D PCB
+├── Schematic.Pdf                  # Schematic Diagram
 └── README.md                      # This file
 ```
 ## Working

@@ -75,3 +75,35 @@ An IoT-based, semi-autonomous surveillance bot designed to monitor environmental
 │   └── index.html                 # HTML/CSS/JS for control panel
 ├── schematic.png                  # Circuit diagram
 └── README.md                      # This file
+
+
+---
+
+## ⚙️ Setup Instructions
+
+### ✅ 1. Arduino IDE Setup for ESP32
+
+1. Open Arduino IDE.
+2. Install ESP32 Board:
+   - File > Preferences > Add URL:  
+     `https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json`
+   - Boards Manager > Install **esp32 by Espressif Systems**
+3. Install Required Libraries:
+   - `MQUnifiedsensor`
+   - `Bonezegei_DHT11`
+   - `MPU6050_tockn`
+   - `WebSocketsServer`
+   - `WiFi`, `WebServer`
+
+---
+
+### 🚀 2. Flash ESP32 (Controller)
+
+- Open `bot_controller.ino`
+- Set your WiFi:
+  ```cpp
+  #define WIFI_SSID     "Your_SSID"
+  #define WIFI_PASSWORD "Your_PASSWORD"
+
+👨‍💻 Developed By
+# Shrirang Rekhate

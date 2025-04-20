@@ -80,5 +80,7 @@ An IoT-based, semi-autonomous surveillance bot designed to monitor environmental
 # Shrirang Rekhate
 
 Electronics and Telecommunication Engineering
+
 Shri Guru Gobind Singhji Institute of Engineering and Technology, Nanded
+
 GitHub: @ShrirangRekhate
